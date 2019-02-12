@@ -46,6 +46,11 @@ export default {
 	},
 	created() {
 		this.setColor("green");
+        
+        this.socket.on("preload", data => {
+            this.messageList = [...this.messageList, data];
+            //this.messageList.push(data)
+		});
     },
 	mounted() {
 		this.socket.on("MESSAGE", data => {
